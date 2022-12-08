@@ -1,11 +1,7 @@
 import sun.misc.Unsafe;
-
-public class Crash {
-    private static final Unsafe unsafe = Unsafe.getUnsafe();
-    public static void crash() {
-        unsafe.putAddress(0, 0);
-    }
+public class Main {
     public static void main(String[] args) {
-        crash();
+        final Unsafe unsafe = Unsafe.getUnsafe();
+        unsafe.setMemory(100, 100, (byte) 0x0000);
     }
 }
